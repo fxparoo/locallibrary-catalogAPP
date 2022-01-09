@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'locallibraryappp.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -76,15 +76,21 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbcks9um129fsl',
+        'HOST': 'ec2-107-21-222-42.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'wcyqvdgvgzkwog',
+        'PASSWORD': '3400b358e923b5140a4f7d32cff83629a1e5f7da6c9d75dcf9972d7237fe5e2b'
     }
 }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -114,9 +120,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 LOGIN_REDIRECT_URL = '/'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
