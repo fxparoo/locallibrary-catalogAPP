@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['localhost', 'locallibraryappp.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['locallibraryappp.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -83,13 +83,13 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'dbcks9um129fsl',
-    #     'HOST': 'ec2-107-21-222-42.compute-1.amazonaws.com',
+    #     'NAME': 'library_db',
+    #     'HOST': 'localhost',
     #     'PORT': '5432',
-    #     'USER': 'wcyqvdgvgzkwog',
-    #     'PASSWORD': '3400b358e923b5140a4f7d32cff83629a1e5f7da6c9d75dcf9972d7237fe5e2b'
+    #     'USER': config('DB_USER'),
+    #     'PASSWORD': config('DB_PASSWORD')
     #
-    # }
+    # },
     'default': config('DATABASE_URL', cast=db_url)
 }
 
