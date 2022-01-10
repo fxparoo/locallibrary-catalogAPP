@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+from decouple import config
+from dj_database_url import parse as db_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,14 +81,16 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbcks9um129fsl',
-        'HOST': 'ec2-107-21-222-42.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'USER': 'wcyqvdgvgzkwog',
-        'PASSWORD': '3400b358e923b5140a4f7d32cff83629a1e5f7da6c9d75dcf9972d7237fe5e2b'
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'dbcks9um129fsl',
+    #     'HOST': 'ec2-107-21-222-42.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    #     'USER': 'wcyqvdgvgzkwog',
+    #     'PASSWORD': '3400b358e923b5140a4f7d32cff83629a1e5f7da6c9d75dcf9972d7237fe5e2b'
+    #
+    # }
+    'default': config('DATABASE_URL', cast=db_url)
 }
 
 # Password validation
